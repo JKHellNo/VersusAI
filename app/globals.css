@@ -312,3 +312,9 @@ h1 {
   flex-direction: column;
   gap: 20px;
 }
+
+.message, .opposite-message {
+  unicode-bidi: plaintext; /* Ensures punctuation stays at the end of the sentence */
+  white-space: pre-wrap; /* Preserves new lines and prevents collapsing spaces */
+  word-break: break-word; /* Prevents long words from causing overflow */
+}
