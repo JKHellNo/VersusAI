@@ -59,18 +59,18 @@ You are giving the Pro reinforcement. Introduce additional supporting evidence a
     
     case 6:
       return `${baseContext}
-You are giving the Con reinforcement. Strengthen your arguments against lowering the drinking age with additional evidence.`;
+You are reinforcing your position. Strengthen your arguments with additional evidence.`;
     
     case 7:
       return `${baseContext}
-You are giving the Con closing argument. Summarize your strongest points against changing the drinking age.`;
-    
+    You are delivering your closing argument for your position in a professional debate tournament or club. Summarize your strongest points in a compelling final statement that clearly marks the conclusion of your argument.`;
+
     case 8:
       return `${baseContext}
-You are giving the Pro closing argument. Make your final case for changing the drinking age, addressing key opposing arguments.`;
-    
-    default:
-      return baseContext;
+    You are delivering your closing argument for the opposing position in a professional debate tournament or club. Address key counterarguments and reinforce your stance with a definitive final statement that marks the end of your debate.`;
+
+  default:
+    return baseContext;
   }
 };
 

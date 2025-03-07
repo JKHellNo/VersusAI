@@ -96,6 +96,14 @@ const Chat = () => {
     const visibleMessages = messages.filter(m => m.role !== 'system');
     
     // Hard-coded order of speakers: Pro, Con, Con, Pro, Pro, Con, Con, Pro
+    // Pro argument – Advocating for lowering the drinking age.
+    // Con argument – Opposing the change and defending the current drinking age.
+    // Con rebuttal – Responding to Pro’s points.
+    // Pro rebuttal – Countering Con’s arguments.
+    // Pro reinforcement – Adding more justifications for lowering the drinking age.
+    // Con reinforcement – Strengthening arguments for keeping the drinking age at 21.
+    // Con closing argument – Final reinforcement of opposition.
+    // Pro closing argument – Final push for lowering the drinking age." which i like, but the side avatar sides are wrong.
     const speakerOrder = [
       'pro', 'con', 'con', 'pro', 'pro', 'con', 'con', 'pro'
     ];
