@@ -27,6 +27,7 @@ const Chat = () => {
   });
 
   const chatContainer = useRef<HTMLDivElement>(null);
+  const responseContainer = useRef<HTMLDivElement>(null);
 
   // Function to trigger the next debate turn
   const triggerNextTurn = async () => {
@@ -78,18 +79,33 @@ const Chat = () => {
     }
   }, [messages, isDebateStarted, isWaitingForResponse]);
 
-  const scroll = () => {
-    if (chatContainer.current) {
-      const { offsetHeight, scrollHeight, scrollTop } = chatContainer.current;
-      if (scrollHeight >= scrollTop + offsetHeight) {
-        chatContainer.current.scrollTo(0, scrollHeight + 200);
-      }
-    } 
+  // Improved autoscroll function
+  const scrollToBottom = () => {
+    if (responseContainer.current) {
+      responseContainer.current.scrollTop = responseContainer.current.scrollHeight;
+    }
   };
 
+  // Scroll to bottom whenever messages change or a new message is added
   useEffect(() => {
-    scroll();
+    scrollToBottom();
   }, [messages]);
+
+  // Get the current turn label based on turnCount
+  const getTurnLabel = () => {
+    const turnLabels = [
+      "Pro Opening Argument",
+      "Con Opening Argument",
+      "Con Rebuttal",
+      "Pro Rebuttal",
+      "Pro Reinforcement",
+      "Con Reinforcement",
+      "Con Closing Argument",
+      "Pro Closing Argument"
+    ];
+    
+    return turnCount < turnLabels.length ? turnLabels[turnCount] : "Debate Finished!";
+  };
 
   const renderResponse = () => {
     // Filter out system messages to avoid duplication
@@ -109,7 +125,7 @@ const Chat = () => {
     ];
     
     return (
-      <div className="response">
+      <div className="response" ref={responseContainer}>
         {visibleMessages.map((m, index) => {
           // Determine if this is a Pro or Con message based on the hard-coded order
           const isProMessage = index < speakerOrder.length ? speakerOrder[index] === 'pro' : index % 2 === 0;
