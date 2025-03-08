@@ -211,6 +211,13 @@ h1 {
   box-shadow: 0 0 20px var(--shadow-color);
 }
 
+.highlighted-text {
+  background: linear-gradient(45deg, #ff8c8c, #ffe608);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px #ffeb3b40;
+}
+
 .start-button {
   padding: 0.75rem 2.5rem;
   font-size: 1rem;
