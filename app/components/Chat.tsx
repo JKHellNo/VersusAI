@@ -152,7 +152,7 @@ const Chat = () => {
   };
 
   return (
-    <div ref={chatContainer} className="chat">
+    <div ref={chatContainer} className="chat-container">
       {!isDebateStarted ? (
         <form onSubmit={handleTopicSubmit} className="topic-form">
           <input
