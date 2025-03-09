@@ -87,6 +87,7 @@ h1 {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   height: calc(100vh - 8rem); /* Fixed height to ensure scrolling works */
+  padding-bottom: 4rem; /* Add buffer space at the bottom */
 }
 
 .image-box {
@@ -111,6 +112,7 @@ h1 {
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.62);
   flex-shrink: 0;
+  object-fit: cover; /* Prevent image stretching */
 }
 
 .message-container {
@@ -364,5 +366,9 @@ h1 {
   .start-button {
     padding: 0.5rem 1.5rem;
     font-size: 0.9rem;
+  }
+  
+  .response {
+    padding-bottom: 3rem; /* Smaller buffer on mobile */
   }
 }

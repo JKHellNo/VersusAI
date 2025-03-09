@@ -39,27 +39,27 @@ Keep responses concise (max 2-3 sentences) and focused on key points.`;
   switch(turnNumber) {
     case 1:
       return `${baseContext}
-You are giving the Pro opening argument. Present your initial supporting arguments clearly and persuasively.`;
+You are giving the Pro Opening Argument. Present your initial supporting arguments clearly and persuasively.`;
     
     case 2:
       return `${baseContext}
-You are giving the Con opening argument. Present your initial opposing arguments and address the Pro's points.`;
+You are giving the Con Opening Argument. Present your initial opposing arguments and address the Pro's points.`;
     
     case 3:
       return `${baseContext}
-You are giving the Con rebuttal. Respond directly to the Pro's opening arguments with counterpoints.`;
+You are giving the Con Rebuttal. Respond directly to the Pro's opening arguments with counterpoints.`;
     
     case 4:
       return `${baseContext}
-You are giving the Pro rebuttal. Counter the Con's arguments and defend your original points.`;
+You are giving the Pro Rebuttal. Counter the Con's arguments and defend your original points.`;
     
     case 5:
       return `${baseContext}
-You are giving the Pro reinforcement. Introduce additional supporting evidence and strengthen your position.`;
+You are giving the Pro Reinforcement. Introduce additional supporting evidence and strengthen your position.`;
     
     case 6:
       return `${baseContext}
-You are reinforcing your position. Strengthen your arguments with additional evidence.`;
+You are giving the Con Reinforcement. Strengthen your arguments with additional evidence.`;
     
     case 7:
       return `${baseContext}

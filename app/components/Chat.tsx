@@ -9,6 +9,7 @@ const Chat = () => {
   const [isDebateStarted, setIsDebateStarted] = useState(false);
   const [isWaitingForResponse, setIsWaitingForResponse] = useState(false);
   const [turnCount, setTurnCount] = useState(0);
+  const [apiCallCount, setApiCallCount] = useState(0);
   
   const { messages, setMessages, append } = useChat({
     api: "/api/openai",
@@ -19,6 +20,12 @@ const Chat = () => {
     },
     onResponse: () => {
       setIsWaitingForResponse(false);
+    },
+    onFinish: () => {
+      // Only increment API call count when a response is fully generated
+      setTimeout(() => {
+        setApiCallCount(prev => prev + 1);
+      }, 500); // Add a 500ms delay before updating the turn label
     },
     onError: (error) => {
       console.error('Chat error:', error);
@@ -91,7 +98,7 @@ const Chat = () => {
     scrollToBottom();
   }, [messages]);
 
-  // Get the current turn label based on turnCount
+  // Get the current turn label based on API call count
   const getTurnLabel = () => {
     const turnLabels = [
       "Pro Opening Argument",
@@ -104,7 +111,7 @@ const Chat = () => {
       "Pro Closing Argument"
     ];
     
-    return turnCount < turnLabels.length ? turnLabels[turnCount] : "Debate Finished!";
+    return apiCallCount < turnLabels.length ? turnLabels[apiCallCount] : "Debate Finished!";
   };
 
   const renderResponse = () => {
@@ -112,14 +119,6 @@ const Chat = () => {
     const visibleMessages = messages.filter(m => m.role !== 'system');
     
     // Hard-coded order of speakers: Pro, Con, Con, Pro, Pro, Con, Con, Pro
-    // Pro argument – Advocating for lowering the drinking age.
-    // Con argument – Opposing the change and defending the current drinking age.
-    // Con rebuttal – Responding to Pro’s points.
-    // Pro rebuttal – Countering Con’s arguments.
-    // Pro reinforcement – Adding more justifications for lowering the drinking age.
-    // Con reinforcement – Strengthening arguments for keeping the drinking age at 21.
-    // Con closing argument – Final reinforcement of opposition.
-    // Pro closing argument – Final push for lowering the drinking age." which i like, but the side avatar sides are wrong.
     const speakerOrder = [
       'pro', 'con', 'con', 'pro', 'pro', 'con', 'con', 'pro'
     ];
@@ -175,11 +174,7 @@ const Chat = () => {
       ) : (
         <>
           <div className="round-indicator">
-            {turnCount < 4 ? (
-              <>Round {Math.ceil((turnCount + 1) / 2)} - {isProTurn ? "Pro" : "Con"} Turn</>
-            ) : (
-              <>Debate Finished!</>
-            )}
+            {getTurnLabel()}
           </div>
           {renderResponse()}
         </>
