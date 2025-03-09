@@ -147,9 +147,6 @@ const Chat = () => {
                 <p className={`message ${!isProMessage ? "opposite-message" : ""}`}>
                   {m.content}
                 </p>
-                {index < visibleMessages.length - 1 && (
-                  <div className="horizontal-line" />
-                )}
               </div>
             </div>
           );

@@ -99,7 +99,7 @@ h1 {
   display: flex;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .chat-line.opposite-side {
@@ -283,13 +283,6 @@ h1 {
   }
 }
 
-.horizontal-line {
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
-  width: 100%;
-  margin: 1rem 0;
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
   .chat-container {
@@ -328,7 +321,7 @@ h1 {
 
 @media (max-width: 480px) {
   .chat-line {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
   }
   
   .chat-line .avatar {
