@@ -144,15 +144,7 @@ const Chat = () => {
                 height={40}
                 src={isProMessage ? "/pro-avatar.png" : "/con-avatar.png"}
               />
-              <div style={{ 
-                width: "100%", 
-                marginLeft: !isProMessage ? "0" : "16px",
-                marginRight: !isProMessage ? "16px" : "0",
-                display: "flex",
-                justifyContent: !isProMessage ? "flex-end" : "flex-start",
-                direction: !isProMessage ? 'rtl' : 'ltr',
-                textAlign: !isProMessage ? 'right' : 'left',
-              }}>
+              <div className={`message-container ${!isProMessage ? "message-container-opposite" : ""}`}>
                 <p className={`message ${!isProMessage ? "opposite-message" : ""}`}>
                   {m.content}
                 </p>

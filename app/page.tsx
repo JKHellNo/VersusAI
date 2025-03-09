@@ -8,9 +8,9 @@ export default function Home() {
     <main className="flex flex-col h-screen bg-[#040d17] text-white">
       <nav className="flex justify-between items-center p-4">
         
-      <h1 className="text-xl font-semibold">Versus AI</h1>
+      <h1 className="highlighted-text text-xl font-semibold">VersusAI</h1>
         <h1 className="text-xl font-semibold">
-          Talk to <span className="highlighted-text">The Paradox Forum</span>
+          Welcome to <span className="highlighted-text">The Trivium Forum</span>
         </h1>
       </nav>
       <div className="flex-grow overflow-hidden">
